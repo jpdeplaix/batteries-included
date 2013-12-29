@@ -618,11 +618,14 @@ val interleave : ?first:'a -> ?last:'a -> 'a -> 'a list -> 'a list
 (** [interleave ~first ~last sep [a0;a1;a2;...;an]] returns
     [first; a0; sep; a1; sep; a2; sep; ...; sep; an; last] *)
 
+(** {6 Monadic interface} *)
 
-(** {6 BatGen functions}
+module Monad : BatInterfaces.Monad with type 'a m = 'a list
 
-    Abstraction layer.*)
+module Traverse(M : BatInterfaces.Monad) :
+  BatInterfaces.Traversable with type 'a m = 'a M.m and type 'a t = 'a list
 
+(** {6 BatGen functions} *)
 
 val gen : 'a list -> 'a BatGen.t
 (** Returns an enumeration of the elements of a list. This enumeration may
