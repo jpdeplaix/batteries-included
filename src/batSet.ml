@@ -297,6 +297,8 @@ module Concrete = struct
 
   let of_list cmp l = List.fold_left (fun a x -> add cmp x a) empty l
 
+  let of_list cmp l = List.fold_left (fun a x -> add cmp x a) empty l
+
   let print ?(first="{") ?(last="}") ?(sep=",") print_elt out t =
     BatGen.print ~first ~last ~sep
       (fun out e -> BatPrintf.fprintf out "%a" print_elt e) out (gen t)

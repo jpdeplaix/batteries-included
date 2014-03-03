@@ -239,6 +239,12 @@ sig
       @since NEXT_RELEASE
   *)
 
+  val of_list: elt list -> t
+  (** builds a set from the given list.
+
+      @since NEXT_RELEASE
+  *)
+
 
   (** {6 Boilerplate code}*)
 
