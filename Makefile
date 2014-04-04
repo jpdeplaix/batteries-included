@@ -113,6 +113,13 @@ _build/$(QTESTDIR)/all_tests.native: $(QTESTDIR)/all_tests.ml
 
 EXT=native
 
+qtest-byte-clean:
+	@${RM} $(QTESTDIR)/all_tests.ml
+	@${MAKE} _build/$(QTESTDIR)/all_tests.byte
+
+qtest-byte: prefilter qtest-byte-clean
+	@_build/$(QTESTDIR)/all_tests.byte
+
 qtest-clean:
 	@${RM} $(QTESTDIR)/all_tests.ml
 	@${MAKE} _build/$(QTESTDIR)/all_tests.$(EXT)
