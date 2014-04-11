@@ -108,7 +108,7 @@ let rec of_list_for_test f = function
   )
   (Q.list Q.small_int) (fun l -> \
     let t = of_list_for_test make_tree l in \
-    (enum t |> List.of_enum |> List.sort compare) = List.sort compare l \
+    (gen t |> List.of_gen |> List.sort compare) = List.sort compare l \
   )
 *)
 
