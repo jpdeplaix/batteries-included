@@ -150,7 +150,7 @@ Document manual
 
 Test main
   Type:         custom (0.2)
-  Command:      make qtest   # FIXME
+  Command:      make test-native
 
 SourceRepository master
   Type:         git
