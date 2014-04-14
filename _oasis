@@ -75,8 +75,8 @@ Library "batteries_bigarray"
   Install$:         flag(bigarray)
   FindlibName:      bigarray
   FindlibParent:    batteries
-  BuildDepends:     batteries.core
-  XMETARequires:    batteries.core
+  BuildDepends:     batteries.core,bigarray
+  XMETARequires:    batteries.core,bigarray
 
 Library "batteries_unix"
   Path:             src/unix
@@ -85,8 +85,8 @@ Library "batteries_unix"
   Install$:         flag(unix)
   FindlibName:      unix
   FindlibParent:    batteries
-  BuildDepends:     batteries.core,batteries.bigarray
-  XMETARequires:    batteries.core,batteries.bigarray
+  BuildDepends:     batteries.core,batteries.bigarray,unix
+  XMETARequires:    batteries.core,batteries.bigarray,unix
 
 Library "batteries_num"
   Path:             src/num
