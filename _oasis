@@ -47,8 +47,10 @@ Flag "bencode"
   Description:  Build and install the interface to Bencode (requires Bencode)
   Default:      false
 
-Library "batteries"
+Library "batteries_core"
   Path:             src
+  FindlibName:      core
+  FindlibParent:    batteries
   Modules:          BatArray, BatBool, BatBounded, BatBuffer, BatChar,
                     BatComplex, BatFloat, BatFormat, BatGc, BatHashtbl,
                     BatHeap, BatInt32, BatInt64, BatInt, BatList, BatMap,
@@ -71,16 +73,16 @@ Library "batteries_bigarray"
   Modules:          BatBigarray
   FindlibName:      bigarray
   FindlibParent:    batteries
-  BuildDepends:     batteries
-  XMETARequires:    batteries
+  BuildDepends:     batteries.core
+  XMETARequires:    batteries.core
 
 Library "batteries_unix"
   Path:             src/unix
   Modules:          BatUnix, BatLogger, BatLog, BatFile
   FindlibName:      unix
   FindlibParent:    batteries
-  BuildDepends:     batteries,batteries.bigarray
-  XMETARequires:    batteries,batteries.bigarray
+  BuildDepends:     batteries.core,batteries.bigarray
+  XMETARequires:    batteries.core,batteries.bigarray
 
 Library "batteries_num"
   Path:             src/num
@@ -89,8 +91,8 @@ Library "batteries_num"
   Install$:         flag(num)
   FindlibName:      num
   FindlibParent:    batteries
-  BuildDepends:     batteries,num
-  XMETARequires:    batteries,num
+  BuildDepends:     batteries.core,num
+  XMETARequires:    batteries.core,num
 
 Library "batteries_thread"
   Path:             src/thread
@@ -99,19 +101,17 @@ Library "batteries_thread"
   Install$:         flag(thread)
   FindlibName:      thread
   FindlibParent:    batteries
-  BuildDepends:     batteries,threads
-  XMETARequires:    batteries,threads
+  BuildDepends:     batteries.core,threads
+  XMETARequires:    batteries.core,threads
 
-Library "batteries_full"
+Library "batteries"
   Path:             src/full
   Modules:          BatPervasives, BatInnerPervasives, Batteries,
                     BatteriesExceptionless
   Build$:           flag(unix)
   Install$:         flag(unix)
-  FindlibName:      full
-  FindlibParent:    batteries
-  BuildDepends:     batteries,batteries.bigarray,batteries.unix,num,str
-  XMETARequires:    batteries,batteries.bigarray,batteries.unix,num,str
+  BuildDepends:     batteries.core,batteries.bigarray,batteries.unix,num,str
+  XMETARequires:    batteries.core,batteries.bigarray,batteries.unix,num,str
 
 Library "batteries_sexp"
   Path:             src/sexp
@@ -120,8 +120,8 @@ Library "batteries_sexp"
   Install$:         flag(sexp)
   FindlibName:      sexp
   FindlibParent:    batteries
-  BuildDepends:     batteries,sexplib
-  XMETARequires:    batteries,sexplib
+  BuildDepends:     batteries.core,sexplib
+  XMETARequires:    batteries.core,sexplib
 
 Library "batteries_yojson"
   Path:             src/yojson
@@ -130,8 +130,8 @@ Library "batteries_yojson"
   Install$:         flag(yojson)
   FindlibName:      yojson
   FindlibParent:    batteries
-  BuildDepends:     batteries,yojson
-  XMETARequires:    batteries,yojson
+  BuildDepends:     batteries.core,yojson
+  XMETARequires:    batteries.core,yojson
 
 Library "batteries_bencode"
   Path:             src/bencode
@@ -140,8 +140,8 @@ Library "batteries_bencode"
   Install$:         flag(bencode)
   FindlibName:      bencode
   FindlibParent:    batteries
-  BuildDepends:     batteries,bencode
-  XMETARequires:    batteries,bencode
+  BuildDepends:     batteries.core,bencode
+  XMETARequires:    batteries.core,bencode
 
 Document manual
   Type:         custom (0.2)
