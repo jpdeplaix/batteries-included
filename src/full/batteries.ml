@@ -154,6 +154,8 @@ module Incubator = struct
   module PathGen = BatPathGen
 end
 
+module Unix = BatUnix
+
 (* Pervasives last *)
 include Pervasives
 include BatPervasives
